@@ -11,9 +11,7 @@
 | first_name         | string  | null: false
 | last_name_kana     | string  | null: false
 | first_name_kana    | string  | null: false
-| birth_year_id      | integer | null: false
-| birth_month_id     | integer | null: false
-| birth_day_id       | integer | null: false
+| birthday           | deta    | null: false
 
 ### association
 - has_many :items
@@ -21,17 +19,17 @@
 
 ## itemsテーブル
 
-| columns              | style   | option
+| columns              | style      | option
 |----------------------------------------------------------
-| name                 | string  | null: false
-| info                 | text    | null: false
-| category_id          | integer | null: false
-| sales_status_id      | integer | null: false
-| shipping_fee_id   	 | integer | null: false
-| prefecture_id        | integer | null: false
-| schedule_delivery_id | integer | null: false
-| price	               | integer | null: false
-| user_id              | integer | null: false
+| name                 | string     | null: false
+| info                 | text       | null: false
+| category_id          | integer    | null: false
+| sales_status_id      | integer    | null: false
+| shipping_fee_id   	 | integer    | null: false
+| prefecture_id        | integer    | null: false
+| schedule_delivery_id | integer    | null: false
+| price	               | integer    | null: false
+| user_id              | references | null: false, foreign_key:true
 
 ### association
 - belongs_to :user
@@ -44,7 +42,6 @@
 |----------------------------------------------------------
 | user_id    | references | null: false foreign_key: true
 | item_id    | references | null: false foreign_key: true
-| address_id | references | null: false foreign_key: true
 
 ### association
 - belongs_to :user
@@ -54,14 +51,15 @@
 
 ## addressテーブル
 
-| columns              | style   | option
+| columns              | style      | option
 |----------------------------------------------------------
-| postal_code          | string  | null: false
-| prefecture_id        | integer | null: false
-| city                 | string  | null: false
-| address              | string  | null: false
-| building             | string  |
-| phone_number         | string  | null: false
+| postal_code          | string     | null: false
+| prefecture_id        | integer    | null: false
+| city                 | string     | null: false
+| address              | string     | null: false
+| building             | string     |
+| phone_number         | string     | null: false
+| order_id             | references | null: false, foreign_key: true
 
 ### association
 - belongs_to :order
