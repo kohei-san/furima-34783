@@ -29,7 +29,7 @@
 | prefecture_id        | integer    | null: false
 | schedule_delivery_id | integer    | null: false
 | price	               | integer    | null: false
-| user_id              | references | null: false, foreign_key:true
+| user                 | references | null: false, foreign_key:true
 
 ### association
 - belongs_to :user
@@ -38,10 +38,10 @@
 
 ## ordersテーブル
 
-| columns    | style      | option
+| columns | style      | option
 |----------------------------------------------------------
-| user_id    | references | null: false foreign_key: true
-| item_id    | references | null: false foreign_key: true
+| user    | references | null: false foreign_key: true
+| item    | references | null: false foreign_key: true
 
 ### association
 - belongs_to :user
@@ -59,7 +59,7 @@
 | address              | string     | null: false
 | building             | string     |
 | phone_number         | string     | null: false
-| order_id             | references | null: false, foreign_key: true
+| order                | references | null: false, foreign_key: true
 
 ### association
 - belongs_to :order

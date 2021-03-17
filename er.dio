@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="x0_oY1sJxdHtnE6T22t0" name="ページ1">
-        <mxGraphModel dx="814" dy="374" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1180" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -29,16 +29,18 @@
                     <mxGeometry y="30" width="160" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="60" value="adresssテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="300" y="260" width="160" height="130" as="geometry"/>
+                    <mxGeometry x="280" y="270" width="160" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="61" value="postal_code&#10;prefecture_id&#10;city&#10;address&#10;building&#10;phone_number" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="60">
-                    <mxGeometry y="30" width="160" height="100" as="geometry"/>
+                <mxCell id="61" value="postal_code&#10;prefecture_id&#10;city&#10;address&#10;building&#10;phone_number&#10;order_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="60">
+                    <mxGeometry y="30" width="160" height="110" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="1" source="54" target="57">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="64" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="1" source="58" target="61">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="64" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;startArrow=ERone;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="1" target="61">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="180" y="320" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
