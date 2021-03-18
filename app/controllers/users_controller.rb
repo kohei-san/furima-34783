@@ -16,5 +16,8 @@ class UsersController < ApplicationController
     end
   end
 
+    @user = User(params:[:current.user.id])
+  end
+
   private
 end
