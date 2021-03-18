@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
     @user = User(params:[:current.user.id])
   end
 
