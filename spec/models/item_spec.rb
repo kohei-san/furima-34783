@@ -69,12 +69,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it "priceが300円未満では出品できない" do
-        @item.price = "299"
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Price は¥300 ~ 9,999,999の半角で入力してください。")
       end
       it "priceが9999999円以上では出品できない" do
-        @item.price = "10000000"
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price は¥300 ~ 9,999,999の半角で入力してください。")
       end
