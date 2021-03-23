@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name,      length: {maximum: 40}
     validates :info,      length: {maximum: 1000}
+    validates :image
     validates :price,     numericality: { only_integer: true,
       greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'は¥300 ~ 9,999,999の半角で入力してください。'}
   end
