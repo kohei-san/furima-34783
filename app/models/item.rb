@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     validates :info
     validates :price, numericality: { only_integer: true,
       greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'は¥300- ~ ¥9,999,999で入力してください。'}
-    # 各バリデーション追記必要
+    # 各バリデーション追記必要か確認のこと
   end
 
   with_options numericality:{ other_than: 0 } do
