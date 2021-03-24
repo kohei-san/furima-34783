@@ -78,6 +78,16 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price は¥300 ~ 9,999,999の半角で入力してください。")
       end
+      it "priceが半角英数混合では登録できない" do
+        @item.price = "300abc"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price は¥300 ~ 9,999,999の半角で入力してください。")
+      end
+      it "priceが英語では登録できない" do
+        @item.price = "abcd"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price は¥300 ~ 9,999,999の半角で入力してください。")
+      end
       it "priceが全角では出品できない" do
         @item.price = "１０００"
         @item.valid?
