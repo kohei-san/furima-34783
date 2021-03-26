@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    binding.pry
     @order = Order.create(order_params)
     Address.create(address_params)
     redirect_to root_path    
