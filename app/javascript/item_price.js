@@ -12,5 +12,3 @@ function taxCalc (){
 } 
 
 window.addEventListener('load', taxCalc )
-
-// letにて都度値を書き換え、出力する?
