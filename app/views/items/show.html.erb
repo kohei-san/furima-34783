@@ -24,14 +24,16 @@
       </span>
     </div>
 
-    <% if user_signed_in? %>
-      <%# 出品者の場合は編集、削除ボタンを表示 %>
-      <% if current_user.id == @item.user_id %>
-        <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
-        <p class="or-text">or</p>
-        <%= link_to "削除", item_path, method: :delete, class:"item-destroy" %>
-      <% else %>
-        <%= link_to "購入画面に進む", item_orders_path(@item.id),method: :get, class:"item-red-btn"%>
+    <%# 購入、編集、削除ボタンについて %>
+    <% unless @item.order.item_id == @item.id %> <%# 販売した商品のボタンは全て非表示 %>
+      <% if user_signed_in? %>    <%# ログインしていなければボタンは非表示 %>
+        <% if current_user.id == @item.user_id %> <%# 出品者の場合、「編集、削除」ボタンを表示 %>
+          <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
+          <p class="or-text">or</p>
+          <%= link_to "削除", item_path, method: :delete, class:"item-destroy" %>
+        <% else %>    <%# その他のログインしているユーザーには「購入ボタン」を表示 %>
+          <%= link_to "購入画面に進む", item_orders_path(@item.id),method: :get, class:"item-red-btn"%>
+        <% end %>
       <% end %>
     <% end %>
 
