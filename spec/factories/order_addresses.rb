@@ -6,5 +6,8 @@ FactoryBot.define do
     address         {Faker::Address.secondary_address}
     building        {Faker::Address.mail_box}
     phone_number    {Faker::Number.number(digits: 11)}
+    token           {Faker::Internet.uuid}
+    user_id         {Faker::Number.digit}
+    item_id         {Faker::Number.digit}
   end
 end

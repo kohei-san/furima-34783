@@ -82,6 +82,21 @@ RSpec.describe OrderAddress, type: :model do
         @address.valid?
         expect(@address.errors.full_messages).to include("Phone number is not a number")
       end
+      it "user_idが空では購入できない" do
+        @address.user_id = ""
+        @address.valid?
+        expect(@address.errors.full_messages).to include("User can't be blank")
+      end
+      it "item_idが空では購入できない" do
+        @address.item_id = ""
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Item can't be blank")
+      end
+      it "tokenが空では購入できない" do
+        @address.token = ""
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Token (submit card information properly)")
+      end
     end
   end
 end

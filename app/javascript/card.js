@@ -13,7 +13,7 @@ const pay = () => {
       exp_year: `20${formData.get("order_address[card_exp_year]")}`,
       cvc: formData.get("order_address[card_cvc]")
     };
-console.log(card)
+
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
         const token = response.id;

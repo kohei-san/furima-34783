@@ -8,7 +8,11 @@ class OrderAddress
     validates :city
     validates :address
     validates :phone_number,    numericality: { only_integer: true }, length: { maximum: 11 }
+    validates :user_id
+    validates :item_id
   end
+
+    validates :token, presence: { message: "(submit card information properly)" }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
