@@ -9,10 +9,12 @@
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
         <%# 販売済みの場合はsold outを表示 %>
-        <% if @item.order.item_id == @item.id %>
-          <div class="sold-out">
-            <span>Sold Out!!</span>
-          </div>
+        <% unless @item.order.nil? %>
+          <% if @item.order.item_id == @item.id %>
+            <div class="sold-out">
+              <span>Sold Out!!</span>
+            </div>
+          <% end %>
         <% end %>
     </div>
     <div class="item-price-box">
@@ -25,8 +27,7 @@
     </div>
 
     <%# 購入、編集、削除ボタンについて %>
-    <% unless @item.order.item_id == @item.id %> <%# 販売した商品のボタンは全て非表示 %>
-      <% if user_signed_in? %>    <%# ログインしていなければボタンは非表示 %>
+      <% if user_signed_in? && @item.order.nil? %>    <%# ログインしていなければボタンは非表示 %>
         <% if current_user.id == @item.user_id %> <%# 出品者の場合、「編集、削除」ボタンを表示 %>
           <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
           <p class="or-text">or</p>
@@ -35,7 +36,6 @@
           <%= link_to "購入画面に進む", item_orders_path(@item.id),method: :get, class:"item-red-btn"%>
         <% end %>
       <% end %>
-    <% end %>
 
     <div class="item-explain-box">
       <span><%= "#{@item.info}" %></span>
