@@ -9,12 +9,10 @@
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
         <%# 販売済みの場合はsold outを表示 %>
-        <% unless @item.order.nil? %>
-          <% if @item.order.item_id == @item.id %>
-            <div class="sold-out">
-              <span>Sold Out!!</span>
-            </div>
-          <% end %>
+        <% if @item.order.present? && @item.order.item_id == @item.id %>
+          <div class="sold-out">
+            <span>Sold Out!!</span>
+          </div>
         <% end %>
     </div>
     <div class="item-price-box">

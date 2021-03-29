@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :get_item_info #出品者のアクセス制限、商品情報表示、商品価格取得のために必要
-  before_action :customer?
-  before_action :no_order_for_sold
+  before_action :move_to_index
 
   def index
     @order_address = OrderAddress.new
@@ -25,17 +24,9 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def customer?
-    if current_user.id == @item.user.id
+  def move_to_index
+    if current_user.id == @item.user.id || @item.order.present?
       redirect_to root_path
-    end
-  end
-
-  def no_order_for_sold
-    unless @item.order.nil?
-      if @item.id == @item.order.item_id
-        redirect_to root_path
-      end
     end
   end
 
