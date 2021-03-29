@@ -58,8 +58,9 @@ class ItemsController < ApplicationController
   end
 
   def no_edit_for_sold
-    @item.order.item_id == @item.id
-    redirect_to root_path
+    if @item.order.present?
+      redirect_to root_path
+    end
   end
 
 end
